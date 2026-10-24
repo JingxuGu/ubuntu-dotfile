@@ -234,5 +234,29 @@
       "source": "/home/grainrain/.config/niri/dms/wpblur.kdl",
       "bytes": 219
     }
+  ],
+  "terminal_updated_at": "2026-10-25T01:56:02",
+  "terminal_files": [
+    "home/.zshrc",
+    "home/.zprofile",
+    "home/.profile",
+    "home/.bashrc",
+    "home/.config/starship.toml",
+    "home/.config/kitty/kitty.conf",
+    "home/.config/kitty/dank-theme.conf",
+    "home/.config/kitty/dank-tabs.conf",
+    "home/.config/fastfetch/config.jsonc",
+    "home/.config/fastfetch/ubuntu-ascii.txt",
+    "home/.config/niri/config.kdl"
+  ],
+  "wallpaper_theming_updated_at": "2026-10-25T01:58:18",
+  "wallpaper_theming_files": [
+    "home/.config/DankMaterialShell/settings.json",
+    "home/.config/DankMaterialShell/plugin_settings.json",
+    "home/.config/DankMaterialShell/plugins.lock.json",
+    "theming/dms/matugen/configs/kitty.toml",
+    "theming/dms/matugen/templates/kitty.conf",
+    "theming/dms/matugen/templates/kitty-tabs.conf",
+    "theming/dms/pipeline.json"
   ]
 }

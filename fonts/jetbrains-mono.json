@@ -1,0 +1,76 @@
+{
+  "family": "JetBrainsMono Nerd Font Mono",
+  "upstream_family": "JetBrains Mono",
+  "upstream_version": "2.304",
+  "nerd_fonts_version": "3.5.1.",
+  "source": "https://github.com/ryanoasis/nerd-fonts",
+  "download_url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1./JetBrainsMono.tar.xz",
+  "install_directory": "~/.local/share/fonts/JetBrainsMonoNerdFont",
+  "kitty_font_size": 12.0,
+  "styles": [
+    {
+      "file": "JetBrainsMonoNerdFontMono-Bold.ttf",
+      "sha256": "bfcf9a917276ffc058867d87cbc8a5b2f1ab0f4b710e9170dc02763ccb80bd4b"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-BoldItalic.ttf",
+      "sha256": "9dba502e00e35209f6ed2a151c7376c051657b067cdebbc6e52d06cb9002cf31"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-ExtraBold.ttf",
+      "sha256": "1c4ccf0d5fb2d45f04d3efd50f60951fb63281b0375ede992d2b4beb694d2daa"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-ExtraBoldItalic.ttf",
+      "sha256": "0315f5729d19d7c4846ea06503850b0fed785263fc0d7f5bc636563782cbde42"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-ExtraLight.ttf",
+      "sha256": "2ed4462e0332123bccd6d0e3ecfb92e9a9d9c02d7e7cacf2d272d5e4bae85e25"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-ExtraLightItalic.ttf",
+      "sha256": "5a7bc5b7fa3005977be87a7171361e41ff999d65e79b2f47796e4f062dccd56a"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-Italic.ttf",
+      "sha256": "31efd6ead98746f5b0afa1ee6dba60267ad48db36428360bee327bec10621f97"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-Light.ttf",
+      "sha256": "d34f186f256c853a651d222bfad3afa942d4755b47eff70c13660cf94c24b20e"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-LightItalic.ttf",
+      "sha256": "8711d3a15e10e7552bc62dfb8d99dac681eca80c9f4dd59142b27785117c9250"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-Medium.ttf",
+      "sha256": "a736c04959f32b69487956c9ccffa90e71903d3c85952886d42ecead0ca6cb1d"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-MediumItalic.ttf",
+      "sha256": "f21eb76516348ffa152a9727fe4e99fe8baedbb7359c38aeefd1f123d5f6d0fe"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-Regular.ttf",
+      "sha256": "f2a5ea6cfab397445ffab00c0370927b66d61e560a05db5db271b42006381c1a"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-SemiBold.ttf",
+      "sha256": "d3955c56fca699f37ebc153d0a6e331b8784f66fd8a3af5e20c30b90869201c4"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-SemiBoldItalic.ttf",
+      "sha256": "0d2aa4c3955f612986e22d08f08b9c255b75107c07a6128ac24dc80281cc9d9c"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-Thin.ttf",
+      "sha256": "734de2d7f2c70d2a02006ee219fbbe897b09fe83b15861f0f887c717a02695cf"
+    },
+    {
+      "file": "JetBrainsMonoNerdFontMono-ThinItalic.ttf",
+      "sha256": "2c4e01f8eba50c6293a6c1084e807f5d33ef8b17e55e5d2c9bb677475c41da83"
+    }
+  ]
+}

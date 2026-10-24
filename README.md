@@ -2,6 +2,10 @@
 
 Ubuntu 26.04.1 LTS、Niri、DankMaterialShell 的桌面与 Shell 配置快照。配置按用户主目录布局保存在 `home/`，可检查后恢复。快照日期：2026 年 10 月 13 日。
 
+终端配置于 2026 年 10 月 25 日重新核对并同步，见 [终端配置说明](terminal.md)。字体的精确版本、下载地址和各字重校验值见 [字体清单](fonts/jetbrains-mono.json)。
+
+终端配色自动从壁纸提取。DMS 动态主题设置、Matugen 的 Kitty 模板及生成流程也已保存，见 [壁纸自动取色](theming/README.md)。
+
 ## 当前效果
 
 | 组件 | 配置 |
@@ -36,8 +40,8 @@ Ubuntu 26.04.1 LTS、Niri、DankMaterialShell 的桌面与 Shell 配置快照。
 字体可从 [Nerd Fonts 官方发布页](https://github.com/ryanoasis/nerd-fonts/releases)下载 JetBrainsMono 包，安装到 `~/.local/share/fonts/` 后执行 `fc-cache -f`。
 
 ```bash
-git clone https://github.com/JingxuGu/niri-dotfile.git
-cd niri-dotfile
+git clone https://github.com/JingxuGu/ubuntu-dotfile.git
+cd ubuntu-dotfile
 
 # 仅预览，不修改当前系统
 python3 restore.py

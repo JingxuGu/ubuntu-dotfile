@@ -1,0 +1,38 @@
+{
+  "dms_version": "1.6.2",
+  "matugen_version": "4.2.0",
+  "theme": "dynamic",
+  "installed_shell_directory": "/usr/share/quickshell/dms/quickshell",
+  "template_mode": "DMS built-in templates; no user ~/.config/matugen override exists",
+  "pipeline": [
+    "Wallpaper changed in DMS, or wallpaper plugin generates a still image",
+    "DMS Theme queues dms matugen with source image and current color mode",
+    "Matugen extracts Material colors; DMS supplies dank16 terminal colors",
+    "DMS templates generate ~/.config/kitty/dank-theme.conf and dank-tabs.conf",
+    "Kitty loads dank-theme.conf using include; existing windows can reload with Ctrl+Shift+F5"
+  ],
+  "sources": [
+    {
+      "path": "theming/dms/matugen/configs/kitty.toml",
+      "installed_path": "/usr/share/quickshell/dms/quickshell/matugen/configs/kitty.toml",
+      "sha256": "67d6217e4bb1db3a3ff74fb8709d597e2e58fe8cdf422f04f61a860c2e7fe8a9"
+    },
+    {
+      "path": "theming/dms/matugen/templates/kitty.conf",
+      "installed_path": "/usr/share/quickshell/dms/quickshell/matugen/templates/kitty.conf",
+      "sha256": "8ca295e2274ed11cae5feeffe9df854e17e1154356f22c4213bb57c35ec4ce40"
+    },
+    {
+      "path": "theming/dms/matugen/templates/kitty-tabs.conf",
+      "installed_path": "/usr/share/quickshell/dms/quickshell/matugen/templates/kitty-tabs.conf",
+      "sha256": "8ed47bdc52ad825ef5ff1b8a293a97b1fb0bced9692e1611ee0aaa0e5737155f"
+    }
+  ],
+  "excluded_state": [
+    "original wallpaper files",
+    "generated screenshot cache",
+    "DMS launcherQueryHistory",
+    "session history"
+  ],
+  "runtime_setting": "DMS_DISABLE_MATUGEN must not be set to 1 or true"
+}
