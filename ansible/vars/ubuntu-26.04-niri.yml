@@ -1,0 +1,21 @@
+---
+ubuntu_release: "26.04"
+# niri/dms/matugen require compatible configured repositories; see docs.
+desktop_packages_present:
+  - niri
+  - dms
+  - matugen
+  - fuzzel
+  - fastfetch
+  - starship
+  - grim
+  - slurp
+  - wl-clipboard
+  - libgtk-4-1
+  - libadwaita-1-0
+  - libepoxy0
+  - libfontconfig1
+external_components:
+  - "JetBrainsMono Nerd Font Mono: install from the pinned Nerd Fonts release"
+  - "Satty 0.22.0: use the snapshot's checksum-verified installer"
+  - "DMS wallpaper plugins and licensed assets: restore separately"

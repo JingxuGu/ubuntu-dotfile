@@ -1,0 +1,8 @@
+[defaults]
+fontFamily = "JetBrainsMono Nerd Font Mono"
+fontSize = 12.0
+opacity = 0.65
+monitor = "DP-2"
+scale = 1.1
+windowRadius = 12
+proxyPort = 7897

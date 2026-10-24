@@ -1,0 +1,18 @@
+{
+  "ubuntu-26.04-niri": {
+    "os": "Ubuntu",
+    "version": "26.04",
+    "desktop": "Niri + DankMaterialShell",
+    "kind": "machine snapshot",
+    "source_branch": "main",
+    "source_commit": "01a067dc7679ccb35bde7ca487d2d3c03577fdb5"
+  },
+  "ubuntu-22.04-gnome": {
+    "os": "Ubuntu",
+    "version": "22.04",
+    "desktop": "GNOME 42 / Mutter / Ubuntu Dock",
+    "kind": "adapted template",
+    "source_branch": "ubuntu-22.04-gnome",
+    "source_commit": "af9db74845e5f49ee949db45bbb41a3de1b997e9"
+  }
+}

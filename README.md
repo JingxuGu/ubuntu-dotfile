@@ -1,115 +1,54 @@
-# Ubuntu Niri 桌面配置
+# Ubuntu 桌面配置
 
-Ubuntu 26.04.1 LTS、Niri、DankMaterialShell 的桌面与 Shell 配置快照。配置按用户主目录布局保存在 `home/`，可检查后恢复。快照日期：2026 年 10 月 13 日。
+所有受维护的系统方案都放在 `main` 的目录中，Git 分支用于开发变更，不再用于区分 Ubuntu 版本。
 
-终端配置于 2026 年 10 月 25 日重新核对并同步，见 [终端配置说明](terminal.md)。字体的精确版本、下载地址和各字重校验值见 [字体清单](fonts/jetbrains-mono.json)。
+| 系统方案 | 配置快照 | 配置项条目 |
+| --- | --- | --- |
+| Ubuntu 26.04 + Niri + DMS | [dotfile/ubuntu-26.04-niri](dotfile/ubuntu-26.04-niri) | [文档](docs/ubuntu-26.04-niri/README.md) |
+| Ubuntu 22.04 + GNOME 42 | [dotfile/ubuntu-22.04-gnome](dotfile/ubuntu-22.04-gnome) | [文档](docs/ubuntu-22.04-gnome/README.md) |
 
-终端配色自动从壁纸提取。DMS 动态主题设置、Matugen 的 Kitty 模板及生成流程也已保存，见 [壁纸自动取色](theming/README.md)。
+Niri 方案来自 Ubuntu 26.04.1 的实际快照；GNOME 方案是原 `ubuntu-22.04-gnome` 分支的适配模板。两者的来源提交记录于 [systems.json](systems.json)。
 
-## 当前效果
+## 目录职责
 
-| 组件 | 配置 |
-| --- | --- |
-| Niri | 窗口间距 8、DP-2 输出缩放 110%、Kitty 圆角和背景模糊 |
-| Kitty | JetBrainsMono Nerd Font Mono、12 号字体、0.65 背景不透明度、8 点 padding、隐藏窗口装饰、原生 Wayland |
-| Fuzzel | Super + Space、居中深色半透明面板、20 像素圆角、背景模糊与阴影 |
-| Zsh / Starship | 原生补全与历史记录；单行目录、Git 状态、Python/Conda 环境、命令耗时和 SSH 主机名 |
-| Fastfetch | 纯 ASCII Ubuntu 标志、Nerd Font 标签、淡蓝紫色、对齐的 ` > ` 分隔符，无底部色块 |
-| Fcitx5 / Rime | 小鹤双拼、默认简体、显示名称“双拼（小鹤）”、简称“双” |
-| Fcitx5 外观 | Candlelight macOS Dark；当前候选字体 Sans 12 |
-| 截图 | F1 选区 → Satty 标注 → Enter 保存并复制；截图锁不会被剪贴板后台进程继承 |
-| DMS | 动态主题、Dank Island、壁纸插件设置及当前生成的配色文件 |
+```text
+.
+├── dotfile/                 # 两套原始文件、恢复工具和资源清单
+│   ├── ubuntu-26.04-niri/
+│   └── ubuntu-22.04-gnome/
+├── chezmoi/                 # 两套配置的可部署模板和设备参数
+├── ansible/                 # 按系统方案维护软件包 installed/absent 状态
+├── docs/                    # Markdown 配置项、使用流程和迁移说明
+│   ├── ubuntu-26.04-niri/
+│   └── ubuntu-22.04-gnome/
+├── licenses/                # 上游许可
+└── tests/                   # 结构、渲染和迁移验证
+```
 
-快照记录的是这台机器的实际配置。DP-2 输出名、壁纸目录和代理端口是机器相关设置；迁移时请调整。Niri 中保留了当前的 `waybar` 启动项，DMS 的系统软件与服务需单独安装和管理。
+## 使用流程
 
-## 内容
-
-- `home/.config/`：Niri、Kitty、Fuzzel、Fastfetch、Starship、Satty、Fcitx5、DMS 及 GTK/Qt 配色。
-- `home/.local/share/fcitx5/`：小鹤方案、用户补丁和 macOS Dark 主题。
-- `home/.local/bin/`：截图脚本、Satty 安装脚本，以及当前壁纸后端的启动包装脚本。
-- `home/.zshrc`、`.zprofile`、`.profile`、`.bashrc`、`.xinputrc`：Shell 与输入法配置。
-- `plugins.json`：DMS 插件仓库与固定提交；`patches/`：mpvpaper 插件的本地修改。
-- `snapshot.json`：快照清单；`restore.py`：预览、备份与恢复工具。
-
-程序二进制、字体文件、壁纸/Steam 素材、浏览器数据、SSH/云凭据、缓存、历史记录、Rime 学习词库和生成的 Rime 编译文件不在仓库中。DMS 配色文件是当前快照，启用动态主题后会继续由 DMS 生成。
-
-## 恢复配置
-
-先安装对应组件：Niri 26.04 或更新版本、DankMaterialShell、Matugen、Kitty、Fuzzel、Fastfetch、Zsh、Starship、Fcitx5/Rime、grim、slurp、wl-clipboard、Satty。截图脚本依赖 Bash、Python 3 和 flock。字体需要 JetBrainsMono Nerd Font Mono、Noto Sans 和 Noto Sans CJK。
-
-字体可从 [Nerd Fonts 官方发布页](https://github.com/ryanoasis/nerd-fonts/releases)下载 JetBrainsMono 包，安装到 `~/.local/share/fonts/` 后执行 `fc-cache -f`。
+1. 用 Ansible 检查并准备对应系统的软件包。
+2. 用 chezmoi 选择系统方案，设置当前设备的显示器、缩放、字体和透明度。
+3. 查看 `chezmoi diff` 后应用。GNOME 的 GSettings 由单独的备份工具预览和应用。
 
 ```bash
 git clone https://github.com/JingxuGu/ubuntu-dotfile.git
 cd ubuntu-dotfile
 
-# 仅预览，不修改当前系统
-python3 restore.py
+# 软件状态：先检查，不执行安装；Niri 需先配置兼容的软件源
+cd ansible
+ansible-playbook -i localhost, -c local site.yml \
+  -e profile=ubuntu-26.04-niri --check --diff --ask-become-pass
+cd ..
 
-# 确认清单后恢复；现有文件先备份
-python3 restore.py --apply
-
-niri validate
-fuzzel --check-config
-zsh -n ~/.zshrc
+# init 会询问选择哪一套系统；不会自动 apply
+chezmoi --source "$PWD" init
+chezmoi diff
+chezmoi apply
 ```
 
-恢复工具会把文本中的 `/home/grainrain` 改成目标用户的主目录。已有文件备份到 `~/.local/state/niri-dotfile-backups/<时间>/`。它不会安装软件、修改默认 Shell、启用服务或下载壁纸。
+GNOME 机器将 Ansible 的 `profile` 改为 `ubuntu-22.04-gnome`，chezmoi 中也选择同一方案。不要对同一目标同时应用两个方案。
 
-Kitty 配置明确使用 `/usr/bin/zsh -l`，所以恢复前应先安装 Zsh。修改账户默认 Shell：
+设备变量与软件源前提见 [管理方式](docs/management.md)，完整配置目录见 [文档索引](docs/README.md)。旧分支只保留为历史参考，日常更新集中在 `main`；本次迁移提交同时包含两个来源分支的历史。
 
-```bash
-chsh -s /usr/bin/zsh
-```
-
-需要安装 Satty 时，可以检查并运行仓库中的安装脚本：
-
-```bash
-bash home/.local/bin/install-screenshot-tools
-```
-
-该脚本安装截图依赖，下载并校验 Satty 0.22.0 的 x86_64 发布包。安装完成后，F1 是选区截图快捷键。
-
-Rime 需要系统中的 `/usr/share/rime-data` 包含明月拼音和笔画方案，然后重新部署：
-
-```bash
-rime_deployer --build ~/.local/share/fcitx5/rime /usr/share/rime-data ~/.local/share/fcitx5/rime/build
-```
-
-可在 Fcitx5 的 Rime 菜单中重新部署。之后重新打开 Kitty；更换登录 Shell 或会话环境变量时注销后重新登录。
-
-## 快捷键
-
-| 按键 | 功能 |
-| --- | --- |
-| Super + T | Kitty |
-| Super + Space | Fuzzel |
-| F1 | 选区截图并打开 Satty |
-| Super + Print | 全屏截图并打开 Satty |
-| Super + Shift + Print | 当前窗口截图并打开 Satty |
-| Ctrl + Print | Niri 原生全屏截图 |
-| Alt + Print | Niri 原生窗口截图 |
-| Ctrl + Space | 切换输入法 |
-| Satty 中 Enter | 保存、复制并退出 |
-| Satty 中 Escape | 取消并退出 |
-
-## DMS 壁纸插件
-
-插件代码与渲染器需要单独安装。`plugins.json` 记录当前源码提交：
-
-- [dms-wallpaperengine](https://github.com/sgtaziz/dms-wallpaperengine)
-- [dms-mpvpaper](https://github.com/kanghengliu/dms-mpvpaper)
-
-将相应仓库放到 `~/.config/DankMaterialShell/plugins/`，切换到 `plugins.json` 中的提交。mpvpaper 还有本地补丁：
-
-```bash
-git -C ~/.config/DankMaterialShell/plugins/dms-mpvpaper apply "$PWD/patches/dms-mpvpaper.patch"
-```
-
-当前 Wallpaper Engine 后端为 Kirie。`haru` 与 `linux-wallpaperengine` 包装脚本引用 `~/.local/lib/` 和 `~/.local/share/` 中的渲染器、资源及代理库，仓库没有打包这些依赖。Haru 使用本地 7897 端口代理；不需要代理时应调整包装脚本与 proxychains 配置。壁纸素材应自行准备。
-
-## 来源和许可
-
-- Candlelight 主题来自 [thep0y/fcitx5-themes-candlelight](https://github.com/thep0y/fcitx5-themes-candlelight)，MIT 许可见 `licenses/candlelight-LICENSE`。
-- 小鹤方案的键位映射来自 [rime/rime-double-pinyin](https://github.com/rime/rime-double-pinyin)，GPLv3 许可见 `licenses/rime-double-pinyin-LICENSE`。
-- DMS 插件按其各自上游许可使用。
+字体包、软件二进制、壁纸素材、历史记录、凭据和输入法学习词库不在仓库中。当前桌面的配置不会因仓库重排自动改变。

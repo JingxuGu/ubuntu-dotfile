@@ -1,0 +1,22 @@
+---
+- name: Validate explicit additional and removal package lists
+  ansible.builtin.assert:
+    that:
+      - extra_packages_present is sequence and extra_packages_present is not string
+      - packages_absent is sequence and packages_absent is not string
+      - (packages_absent | intersect(common_packages_present + desktop_packages_present + extra_packages_present)) | length == 0
+
+- name: Ensure selected packages are installed
+  ansible.builtin.apt:
+    name: "{{ (common_packages_present + desktop_packages_present + extra_packages_present) | unique }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Remove only packages explicitly listed for removal
+  ansible.builtin.apt:
+    name: "{{ packages_absent }}"
+    state: absent
+    purge: false
+    autoremove: false
+  when: packages_absent | length > 0

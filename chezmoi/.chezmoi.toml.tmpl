@@ -1,0 +1,12 @@
+{{- $profile := promptChoiceOnce . "profile" "System profile" (list "ubuntu-26.04-niri" "ubuntu-22.04-gnome") -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+[data]
+profile = {{ $profile | quote }}
+deviceName = {{ get . "deviceName" | default .chezmoi.hostname | quote }}
+fontFamily = {{ if hasKey . "fontFamily" }}{{ .fontFamily | quote }}{{ else }}{{ .defaults.fontFamily | quote }}{{ end }}
+fontSize = {{ if hasKey . "fontSize" }}{{ .fontSize }}{{ else }}{{ .defaults.fontSize }}{{ end }}
+opacity = {{ if hasKey . "opacity" }}{{ .opacity }}{{ else }}{{ .defaults.opacity }}{{ end }}
+monitor = {{ if hasKey . "monitor" }}{{ .monitor | quote }}{{ else }}{{ .defaults.monitor | quote }}{{ end }}
+scale = {{ if hasKey . "scale" }}{{ .scale }}{{ else }}{{ .defaults.scale }}{{ end }}
+windowRadius = {{ if hasKey . "windowRadius" }}{{ .windowRadius }}{{ else }}{{ .defaults.windowRadius }}{{ end }}
+proxyPort = {{ if hasKey . "proxyPort" }}{{ .proxyPort }}{{ else }}{{ .defaults.proxyPort }}{{ end }}

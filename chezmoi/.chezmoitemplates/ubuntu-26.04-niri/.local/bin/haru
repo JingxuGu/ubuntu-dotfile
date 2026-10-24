@@ -1,0 +1,9 @@
+#!/bin/sh
+export KIRIE_WE_ASSETS={{ .chezmoi.destDir }}/.local/share/haru/wallpaper-engine/assets
+export KIRIE_BINARY={{ .chezmoi.destDir }}/.local/share/wallpaper-integration/haru-preview-only
+export HTTP_PROXY=http://127.0.0.1:{{ .proxyPort }}
+export HTTPS_PROXY=http://127.0.0.1:{{ .proxyPort }}
+export ALL_PROXY=socks5h://127.0.0.1:{{ .proxyPort }}
+export PROXYCHAINS_CONF_FILE={{ .chezmoi.destDir }}/.config/haru/proxychains.conf
+export LD_PRELOAD={{ .chezmoi.destDir }}/.local/lib/haru/proxychains/usr/lib/x86_64-linux-gnu/libproxychains.so.4
+exec {{ .chezmoi.destDir }}/.local/lib/haru/haru "$@"

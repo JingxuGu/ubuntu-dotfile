@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-13",
+  "kind": "adapted configuration template",
+  "source_home": "/home/grainrain",
+  "system": "Ubuntu 22.04 LTS",
+  "desktop": "GNOME 42 / Mutter / Ubuntu Dock",
+  "scope": "desktop and shell configuration adapted from main; no private data, histories, binaries or wallpaper assets",
+  "files": [
+    {
+      "path": "home/.bashrc"
+    },
+    {
+      "path": "home/.profile"
+    },
+    {
+      "path": "home/.zshrc"
+    },
+    {
+      "path": "home/.zprofile"
+    },
+    {
+      "path": "home/.xinputrc"
+    },
+    {
+      "path": "home/.config/autostart/org.fcitx.Fcitx5.desktop"
+    },
+    {
+      "path": "home/.config/fastfetch/config.jsonc"
+    },
+    {
+      "path": "home/.config/fastfetch/ubuntu-ascii.txt"
+    },
+    {
+      "path": "home/.config/fcitx5/profile"
+    },
+    {
+      "path": "home/.config/fcitx5/conf/classicui.conf"
+    },
+    {
+      "path": "home/.config/kitty/kitty.conf"
+    },
+    {
+      "path": "home/.config/kitty/colors.conf"
+    },
+    {
+      "path": "home/.config/starship.toml"
+    },
+    {
+      "path": "home/.local/share/fcitx5/rime/default.custom.yaml"
+    },
+    {
+      "path": "home/.local/share/fcitx5/rime/double_pinyin_flypy.custom.yaml"
+    },
+    {
+      "path": "home/.local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml"
+    },
+    {
+      "path": "home/.local/share/fcitx5/themes/macOS-dark/theme.conf"
+    },
+    {
+      "path": "home/.local/share/fcitx5/themes/macOS-dark/panel.svg"
+    },
+    {
+      "path": "home/.local/share/fcitx5/themes/macOS-dark/highlight.svg"
+    }
+  ]
+}

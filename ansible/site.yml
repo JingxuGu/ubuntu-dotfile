@@ -1,0 +1,33 @@
+---
+- name: Manage Ubuntu desktop package state
+  hosts: all
+  become: true
+  gather_facts: true
+  vars:
+    package_state_profiles:
+      - ubuntu-26.04-niri
+      - ubuntu-22.04-gnome
+  pre_tasks:
+    - name: Require an explicit supported system profile
+      ansible.builtin.assert:
+        that:
+          - profile is defined
+          - profile | default('') in package_state_profiles
+        fail_msg: "Set profile=ubuntu-26.04-niri or profile=ubuntu-22.04-gnome."
+      tags: always
+
+    - name: Load package state for this system
+      ansible.builtin.include_vars:
+        file: "{{ playbook_dir }}/vars/{{ profile }}.yml"
+      tags: always
+
+    - name: Verify the target Ubuntu release before changing packages
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.distribution == 'Ubuntu'
+          - ansible_facts.distribution_version is match('^' ~ (ubuntu_release | regex_escape) ~ '($|[.])')
+        fail_msg: "Selected profile does not match the target Ubuntu release."
+      tags: always
+  roles:
+    - role: packages
+      tags: packages
