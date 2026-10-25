@@ -1,0 +1,18 @@
+{
+  "enable_extensions": ["blur-my-shell@aunetx"],
+  "schemas": [
+    {
+      "id": "org.gnome.shell.extensions.blur-my-shell.applications",
+      "values": {
+        "customize": "true",
+        "sigma": "30",
+        "brightness": "1.0",
+        "opacity": "255",
+        "blur-on-overview": "false",
+        "enable-all": "false",
+        "whitelist": "['kitty', 'Kitty']",
+        "blur": "true"
+      }
+    }
+  ]
+}
