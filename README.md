@@ -119,7 +119,7 @@ gnome-extensions install /tmp/blur-my-shell-v47.zip
 
 | 按键 | 功能 |
 | --- | --- |
-| Super + T | Kitty |
+| Ctrl + Shift + T | Kitty |
 | Super / Super + Space / Super + S | GNOME 概览与搜索 |
 | Super + Q / Alt + F4 | 关闭窗口 |
 | Super + Up / Down | 最大化 / 取消最大化 |

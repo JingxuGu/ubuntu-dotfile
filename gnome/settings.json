@@ -63,7 +63,7 @@
       "path": "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/ubuntu-dotfile-kitty/",
       "name": "Kitty",
       "command": "kitty",
-      "binding": "<Super>t"
+      "binding": "<Control><Shift>t"
     }
   ]
 }
