@@ -1,0 +1,13 @@
+---
+# Opt in only AFTER deploying and verifying Fcitx5/Rime in the target session.
+# Keep libibus-1.0-5 and gir1.2-ibus-1.0, which GNOME still requires.
+packages_absent:
+  - ibus
+  - ibus-libpinyin
+  - ibus-table
+  - ibus-table-wubi
+  - ibus-gtk
+  - ibus-gtk3
+  - ibus-gtk4
+  - ibus-data
+  - python3-ibus-1.0

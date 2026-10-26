@@ -45,6 +45,9 @@ proxyPort = {8888 if device_overrides else 7897}
                 if profile.endswith('gnome'):
                     self.assertIn('linux_display_server x11', kitty)
                     self.assertTrue((home / '.config/kitty/colors.conf').is_file())
+                    environment = (home / '.config/environment.d/90-fcitx5.conf').read_text()
+                    self.assertIn('GLFW_IM_MODULE=ibus', environment)
+                    self.assertIn('GTK_IM_MODULE=fcitx', environment)
                     self.assertFalse((home / '.config/niri').exists())
                     self.assertFalse((home / '.config/DankMaterialShell').exists())
                     self.assertFalse((home / '.local/bin/screenshot').exists())
@@ -53,6 +56,7 @@ proxyPort = {8888 if device_overrides else 7897}
                     self.assertTrue((home / '.config/niri/config.kdl').is_file())
                     self.assertTrue(os.access(home / '.local/bin/screenshot', os.X_OK))
                     self.assertFalse((home / '.config/kitty/colors.conf').exists())
+                    self.assertFalse((home / '.config/environment.d/90-fcitx5.conf').exists())
 
     def test_device_parameters_render_home_monitor_font_and_opacity(self):
         home, args = self.render('ubuntu-26.04-niri', device_overrides=True)

@@ -1,6 +1,7 @@
 {{ if not (has .profile (list "ubuntu-26.04-niri" "ubuntu-22.04-gnome")) }}{{ fail "Unknown system profile; re-run chezmoi init" }}{{ end }}
 {{ if eq .profile "ubuntu-26.04-niri" }}
 .config/kitty/colors.conf
+.config/environment.d/90-fcitx5.conf
 {{ end }}
 {{ if eq .profile "ubuntu-22.04-gnome" }}
 .config/DankMaterialShell
