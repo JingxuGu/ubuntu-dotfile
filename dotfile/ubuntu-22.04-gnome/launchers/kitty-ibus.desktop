@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty
+GenericName=Terminal emulator
+Comment=Kitty terminal with IBus input enabled
+TryExec=/usr/bin/kitty
+Exec=/usr/bin/env GLFW_IM_MODULE=ibus /usr/bin/kitty
+Icon=kitty
+Categories=System;TerminalEmulator;

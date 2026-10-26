@@ -1,0 +1,5 @@
+#!/bin/sh
+# Enable Kitty 0.21's IBus connection before GLFW initializes under X11/XWayland.
+# kitty.conf env entries only configure child processes.
+export GLFW_IM_MODULE=ibus
+exec /usr/bin/kitty "$@"
